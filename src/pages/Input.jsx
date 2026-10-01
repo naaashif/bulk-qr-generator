@@ -2,10 +2,13 @@ import React from 'react'
 
 function Input() {
     return (
-        <div>
-        <section className="flex flex-col items-center justify-center min-h-screen bg-[#195190]">
-            <div className="bg-[#9CC3D5]"></div>
-        </section>
+        <div className="min-w-10 bg-[#9CC3D5] p-2">
+            <form action="submit">
+                <div className='flex flex-col'>
+                    <label htmlFor="prefix">prefix</label>
+                    <input id='prefix' className='bg-gray-500 text-white' type="text" />
+                </div>
+            </form>
         </div>
     )
 }

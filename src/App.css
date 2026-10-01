@@ -1,1 +1,5 @@
 @import "tailwindcss";
+*{
+  scroll-behavior: smooth;
+  /* outline: 1px solid red; */
+}

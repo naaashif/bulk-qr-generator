@@ -1,10 +1,15 @@
 import './App.css'
+import Input from './pages/Input'
 function App() {
   return (
-    <>
-    <h1 className="text-3xl font-bold bg-[#195190] text-[#9CC3D5] text-center">Bulk QR Code Generator</h1>
-    <Input/>
-    </>
+    <main className='h-screen flex flex-col overflow- bg-[#0063B2]'>
+      <nav className="">
+        <h1 className="text-3xl font-semibold text-[#9CC3D5] text-center underline">Bulk QR Code Generator</h1>
+      </nav>
+      <div className='flex flex-1 mt-5 items- justify-center'>
+        <Input />
+      </div>
+    </main>
   )
 }
 
