@@ -1,9 +1,13 @@
 import React from 'react'
 
-function Input() {
+function Input({ onGenerate }) {
+
+        
     return (
         <div className="w-full max-w-sm sm:max-w-md h-fit max-h-125 rounded-xl bg-[#9CC3D5] p-2">
-            <form onSubmit={(e) => e.preventDefault()} className="w-full max-w-md mx-auto p-4 space-y-4">
+            <form onSubmit={(e) => {e.preventDefault()
+                                    onGenerate()
+            }} className="w-full max-w-md mx-auto p-4 space-y-4">
                 <div className="flex flex-col gap-1">
                     <label htmlFor="prefix" className="text-sm font-semibold text-black px-1">
                         Prefix
@@ -28,9 +32,9 @@ function Input() {
                     />
                 </div>
                 <div className='flex justify-center'>
-                    <button className='bg-blue-600 font-semibold text-white rounded-lg px-4 py-1 hover:bg-blue-800 '
-                    onClick={{}}
-                    >Generate</button>
+                    <button type="submit" className='bg-blue-600 font-semibold text-white rounded-lg px-4 py-1 hover:bg-blue-800 '>
+                        Generate
+                    </button>
                 </div>
             </form>
         </div>
