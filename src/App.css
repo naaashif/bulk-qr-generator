@@ -1,5 +1,14 @@
 @import "tailwindcss";
 *{
-  scroll-behavior: smooth;
+  scroll-behavior: none;
   /* outline: 1px solid red; */
+}
+.red{
+    outline: 1px solid red;
+}
+.green{
+    outline: 1px solid green;
+}
+.blue{
+    outline: 1px solid blue;
 }
