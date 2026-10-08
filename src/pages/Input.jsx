@@ -1,16 +1,18 @@
 import React from 'react'
 
-function Input( { prefix, setPrefix, data, setData, onGenerate } ) {
+function Input({ prefix, setPrefix, data, setData, onGenerate }) {
 
-    const handleEnter = (e) => {
+    const handleEnterData = (e) => {
         if (e.key !== 'Enter') return
-            e.preventDefault()
-            
-            if (setPrefix === '') setData(setData + '\n')
-            setData(setData + '\n' + prefix)
+        e.preventDefault()
 
-
+        if (!prefix.trim()) {
+            setData((current) => `${current}\n`)
+            return
+        }
+        setData((current) => `${current}\n${prefix}`)
     }
+
     return (
         <div className="w-full max-w-sm sm:max-w-md h-fit max-h-120 rounded-xl bg-[#9CC3D5] p-2">
             <form onSubmit={(e) => { e.preventDefault() }}
@@ -24,8 +26,7 @@ function Input( { prefix, setPrefix, data, setData, onGenerate } ) {
                         type="text"
                         placeholder="586_TEMP_012"
                         value={prefix}
-                        onChange={(e) => setPrefix(e.target.value)}
-                        onKeyDown={{e.key === 'Enter' ? handleEnterPrefix :return} }
+                        onChange={(e) => setPrefix(e.target.value.toUpperCase())}
                         className="w-full bg-gray-700 text-white placeholder-gray-500 px-3 py-2 border border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     />
                 </div>
@@ -40,7 +41,7 @@ function Input( { prefix, setPrefix, data, setData, onGenerate } ) {
                         placeholder={"10001\n10002\n10003"}
                         value={data}
                         onChange={(e) => setData(e.target.value)}
-                        onKeyDown={handleEnter}
+                        onKeyDown={handleEnterData}
                         className="w-full bg-gray-700 text-white placeholder-gray-500 px-3 py-2 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
                     />
                 </div>
