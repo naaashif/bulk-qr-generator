@@ -15,6 +15,10 @@ function App() {
     const navigate = useNavigate()
 
     const handleGenerate = async () => {
+        if (!data) {
+            alert('are kettikana onnum type cheyyathe QR indakne')
+            return
+        }
         const lines = data.split('\n').map(l => l.trim()).filter(Boolean)
         const results = await Promise.all(
             lines.map(async (line) => ({

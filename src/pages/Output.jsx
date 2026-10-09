@@ -12,7 +12,7 @@ function Output({ qrResults }) {
   }
 
   return (
-    <div className="w-full max-w-sm sm:max-w-md max-h-120 h-fit rounded-xl bg-[#9CC3D5] p-5">
+    <div className="w-full max-w-sm sm:max-w-md max-h-125 h-fit rounded-xl bg-[#9CC3D5] p-5">
       <div className='size-100 flex flex-col items-center justify-center p-1 w-full h-full'>
         <img src={qrResults[currentIndex]?.dataUrl} alt="qr code"
         className='red w-fit' />

@@ -1,22 +1,38 @@
 import React from 'react'
+    
+let count = false
 
 function Input({ prefix, setPrefix, data, setData, onGenerate }) {
 
     const handleEnterData = (e) => {
-        if (e.key !== 'Enter') return
+        if (e.key !== 'Enter') return;
         e.preventDefault()
 
         if (!prefix.trim()) {
             setData((current) => `${current}\n`)
-            return
+            return;
         }
         setData((current) => `${current}\n${prefix}`)
     }
+    
+    const handleEnterPrefix = (e) => {
+        if (e.key !== 'Enter') return;
+        e.preventDefault()
+        if(count === true) return;
+        if(!prefix.trim()) return;
+            if (!data.trim()) {
+                setData(() => `${prefix}`)
+                count = true;
+                return;
+            }
+        setData((current) => `${current}\n${prefix}`)
+        count = true;
+    }
+    
 
     return (
         <div className="w-full max-w-sm sm:max-w-md h-fit max-h-120 rounded-xl bg-[#9CC3D5] p-2">
-            <form onSubmit={(e) => { e.preventDefault() }}
-                className="w-full max-w-md mx-auto p-4 space-y-4">
+            <form className="w-full max-w-md mx-auto p-4 space-y-4">
                 <div className="flex flex-col gap-1">
                     <label htmlFor="prefix" className="text-sm font-semibold text-black px-1">
                         Prefix
@@ -27,6 +43,7 @@ function Input({ prefix, setPrefix, data, setData, onGenerate }) {
                         placeholder="586_TEMP_012"
                         value={prefix}
                         onChange={(e) => setPrefix(e.target.value.toUpperCase())}
+                        onKeyDown={handleEnterPrefix}
                         className="w-full bg-gray-700 text-white placeholder-gray-500 px-3 py-2 border border-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     />
                 </div>
@@ -46,7 +63,7 @@ function Input({ prefix, setPrefix, data, setData, onGenerate }) {
                     />
                 </div>
                 <div className='flex justify-center'>
-                    <button onClick={onGenerate}
+                    <button type="button" onClick={onGenerate}
                         className='bg-blue-600 font-semibold text-white rounded-lg px-4 py-1 hover:bg-blue-800 '>
                         Generate
                     </button>
