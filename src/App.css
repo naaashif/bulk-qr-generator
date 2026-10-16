@@ -1,7 +1,11 @@
 @import "tailwindcss";
 *{
-  scroll-behavior: none;
+  scroll-behavior: auto;
   /* outline: 1px solid red; */
+}
+@theme {
+  --color-primary: #1E3A8A;
+  --color-secondary: #9CC3D5;
 }
 .green{
     outline: 1px solid green;
