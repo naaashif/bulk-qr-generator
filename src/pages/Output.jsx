@@ -14,7 +14,7 @@ const navigate = useNavigate()
   return (
     <div className="w-full max-w-sm sm:max-w-md max-h-125 h-fit rounded-xl bg-secondary p-5">
       <button onClick={() => navigate('/')} 
-      className="text-lg bg-white border border-3 border-primary rounded-lg text-blue-800 font-bold px-3
+      className="text-lg bg-white border-3 border-primary rounded-lg text-blue-800 font-bold px-3
       hover:bg-blue-200">
       go back</button>
       <div className="text-lg font-bold text-black text-center *: mt-4">QR {currentIndex + 1} of {qrResults.length}</div>

@@ -14,7 +14,7 @@ function Input({ prefix, setPrefix, data, setData, onGenerate }) {
         }
         setData((current) => `${current}\n${prefix}`)
     }
-    
+
     const handleEnterPrefix = (e) => {
         if (e.key !== 'Enter') return;
         e.preventDefault()
@@ -31,7 +31,7 @@ function Input({ prefix, setPrefix, data, setData, onGenerate }) {
     
 
     return (
-        <div className="w-full max-w-sm sm:max-w-md h-fit max-h-120 rounded-xl bg-[#9CC3D5] p-2">
+        <div className="w-full max-w-sm sm:max-w-md h-fit max-h-120 rounded-xl bg-secondary p-2">
             <form className="w-full max-w-md mx-auto p-4 space-y-4">
                 <div className="flex flex-col gap-1">
                     <label htmlFor="prefix" className="text-sm font-semibold text-black px-1">

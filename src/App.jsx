@@ -1,10 +1,11 @@
 import './App.css'
+import QRcode from 'qrcode'
+import { Analytics } from '@vercel/analytics/react'
+import { Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Input from './pages/Input'
 import Output from './pages/Output'
-import { Route, Routes } from 'react-router-dom'
-import QRcode from 'qrcode'
-import { useNavigate } from 'react-router-dom'
 
 
 function App() {
@@ -31,9 +32,11 @@ function App() {
     }
 
   return (
-    <main className='h-screen flex flex-col overflow- bg-[#0063B2] overflow-hidden'>
+    <main className='h-screen flex flex-col overflow- bg-primary overflow-hidden'>
+      <Analytics />
       <nav className="mt-4">
-        <h1 className="text-3xl font-semibold text-[#9CC3D5] text-center underline">Bulk QR Code Generator</h1>
+        <h1 onClick={()=> navigate('/')}
+        className="text-3xl font-semibold text-secondary text-center underline">Bulk QR Code Generator</h1>
       </nav>
       <div className='flex flex-1 mt-5 items- justify-center'>
         <Routes>
